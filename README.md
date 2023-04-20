@@ -1,9 +1,11 @@
-# Continental-scale-biodiversity-of-mudflat-intertidal-viromes-in-China
+# Continental scale biodiversity of mudflat intertidal viromes in China
 ##R code for manuscript: "Continental-scale biodiversity of mudflat intertidal viromes in China"
+
+Note: vOTUs, mOTUs, vPCs tables and sequences information can be obtained from https://doi.org/10.5281/zenodo.7830681.
 
 For any other code/analysis inquiries, please open a github issue.
 
-If this code is useful, please cite: Ji et al. Continental-scale biodiversity of mudflat intertidal viromes in China. 2023. (In Press).
+If these codes are useful, please cite: Ji et al. Continental-scale biodiversity of mudflat intertidal viromes in China. 2023. (In Press).
 
 Note: These R scripts were written and run for R v4.2.0. NCM model, RCbray metric, NST can be calculated by the script in Fig. 5. If you used these script, please also cite:
 
