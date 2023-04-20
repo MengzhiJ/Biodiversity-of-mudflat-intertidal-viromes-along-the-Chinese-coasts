@@ -3,7 +3,7 @@
 
 Note: vOTUs, mOTUs, vPCs tables and sequences information can be obtained from https://doi.org/10.5281/zenodo.7830681.
 
-For any other code/analysis inquiries, please open a github issue.
+For any other code/analysis inquiries, please open a github issue or contact me: jimengzhi@mail.sdu.edu.cn.
 
 If these codes are useful, please cite: Ji et al. Continental-scale biodiversity of mudflat intertidal viromes in China. 2023. (In Press).
 
