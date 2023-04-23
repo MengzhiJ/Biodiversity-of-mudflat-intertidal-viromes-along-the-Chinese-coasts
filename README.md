@@ -1,7 +1,7 @@
 # Continental scale biodiversity of mudflat intertidal viromes in China
 ##R code for manuscript: "Continental-scale biodiversity of mudflat intertidal viromes in China"
 
-Note: vOTUs, mOTUs, vPCs tables and sequences information can be obtained from https://doi.org/10.5281/zenodo.7830681.
+Note: vOTUs, mOTUs, vPCs sequences information can be obtained from https://doi.org/10.5281/zenodo.7856466.
 
 For any other code/analysis inquiries, please open a github issue or contact me: jimengzhi@mail.sdu.edu.cn.
 
