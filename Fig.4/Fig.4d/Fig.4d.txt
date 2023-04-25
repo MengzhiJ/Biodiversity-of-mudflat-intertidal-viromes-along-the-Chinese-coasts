@@ -1,2 +1,0 @@
-Region	Tidal	Marine	Soil	Human	Freshwater
-VCs	2259	210	65	9	109
