@@ -10,7 +10,7 @@ library(ggplot2)
 library(readxl)
 
 
-data<-read.delim('I:/Tidal/R_data/Fig.4/latitude.txt', row.names = 1, sep = '\t', stringsAsFactors = FALSE, check.names = FALSE)
+data<-read.delim('latitude.txt', row.names = 1, sep = '\t', stringsAsFactors = FALSE, check.names = FALSE)
 
 
 #LDG
@@ -18,7 +18,7 @@ ggplot(data = data, mapping = aes(x=Latitude,y=Richness))+
   geom_point(aes(fill=Type),size = 2.5, alpha = 0.85,shape=21)+
   labs(x="Absolute latitude",y="Richness")+
   theme(axis.line = element_line(color="black"))+
-    geom_smooth(aes(color=Type),method = 'gam',se=F,size=1,fullrange=F,formula=y~s(x,k=3))+
+    geom_smooth(aes(color=Type),method = 'gam',se=F,size=1,fullrange=F,formula=y~poly(x,2))+
   theme_test()+ theme(legend.position ="none")+scale_color_manual(breaks=c("vPCs","vOTUs","mOTUs"),
                                                                   values=c("#7AC5CD","#FF8040","gray"))+
   scale_fill_manual(breaks=c("vPCs","vOTUs","mOTUs"),
@@ -29,7 +29,7 @@ ggplot(data = data, mapping = aes(x=Latitude,y=Richness))+
         axis.text.y=element_text(size=16,colour = 'black'),
         panel.border = element_rect(size=1.2),
         legend.text = element_text(size=15),
-        legend.title = element_text(size=16))+stat_cor(aes(color=Type,label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),
+        legend.title = element_text(size=16))+stat_poly_eq(formula=y~poly(x,2),aes(color=Type,label = paste(..rr.label.., ..p.value.., sep = "~`,`~")),
                                                        label.x = )
 ggsave("Fig.4b.tiff",width=5.5,height=5,path="I:/Tidal/R_data/Fig.4")
 
