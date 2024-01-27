@@ -35,7 +35,7 @@ dist.method="bray" # "jaccard" and "bray" are preferred.
 setwd(save.wd)
 tnst=tNST(comm=comm, group=groupi, meta.group=meta.groupi, meta.com=NULL,
           dist.method=dist.method, abundance.weighted=TRUE, rand=rand.time,
-          output.rand=TRUE, nworker=16, LB=FALSE, null.model="PF",dirichlet=T,
+          output.rand=TRUE, nworker=16, LB=FALSE, null.model="PF",dirichlet=F,
           between.group=FALSE, SES=TRUE, RC=TRUE)
 
 save(tnst,file = paste0(prefixi,".tNST.rda")) # save tNST output in R data format
