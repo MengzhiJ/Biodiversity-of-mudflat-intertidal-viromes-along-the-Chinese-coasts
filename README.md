@@ -1,7 +1,7 @@
 # Biodiversity of mudflat intertidal viromes along the Chinese coasts
 ##R code for Figs in manuscript: "Biodiversity of mudflat intertidal viromes along the Chinese coasts"
 
-Note: vOTUs, mOTUs, vPCs sequences information can be obtained from https://doi.org/10.5281/zenodo.7856466.
+Note: vOTUs, mOTUs, vPCs sequences information can be obtained from https://zenodo.org/records/10827260.
 
 For any other code/analysis inquiries, please open a github issue or contact me: jimengzhi@mail.sdu.edu.cn.
 
