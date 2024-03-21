@@ -1,6 +1,7 @@
 library(readxl)
 library(ggplot2)
-data<-read_excel("I:/Tidal/R_data/Fig.5/NST.xlsx") 
+setwd("Fig.5")
+data<-read_excel("NST.xlsx") 
 data$letter=factor(data$letter, levels=c("vOTUs","mOTUs","Virus (host)","Host"))
 
 
@@ -19,5 +20,5 @@ ggplot(data,aes(x=letter,y=value))+
         legend.title = element_text(size=16))+theme(legend.position = 'none')+ coord_cartesian(ylim = c(0,100))
 geom_hline(yintercept=c(50), linetype="dotted") #add Horizontal Line 
 theme(axis.ticks.y = element_blank(), axis.text.y = element_blank()) #remove yaxis
-ggsave("Fig.5c.tiff",width=5.6,height=5.6,path="I:/Tidal/R_data/Fig.5/")
+
 
