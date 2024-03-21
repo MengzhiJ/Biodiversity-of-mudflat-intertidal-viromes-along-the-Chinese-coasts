@@ -1,10 +1,11 @@
 library(vegan)
-env<-read.csv('I:/Tidal/R_data/Fig. 5/Environment.CSV',row.names = 1) # sample as row, env as column
-mOTUs<-t(read.delim('I:/Tidal/R_data/Fig. 5/mOTUs.txt',row.names = 1)) # sample as row, env as column
-vOTUs<-t(read.delim('I:/Tidal/R_data/Fig. 5/vOTUs.txt',row.names = 1))
-host<-t(read.delim('I:/Tidal/R_data/Fig. 5/host.txt',row.names = 1))
-virus<-t(read.delim('I:/Tidal/R_data/Fig. 5/virus.txt',row.names = 1))
-geo<-read.csv('I:/Tidal/R_data/Fig. 5/distance.CSV',row.names = 1) # sample as row, env as column
+setwd("Fig.5")
+env<-read.csv('Environment.CSV',row.names = 1) # sample as row, env as column
+mOTUs<-t(read.delim('mOTUs.txt',row.names = 1)) # sample as row, env as column
+vOTUs<-t(read.delim('vOTUs.txt',row.names = 1))
+host<-t(read.delim('host.txt',row.names = 1))
+virus<-t(read.delim('virus.txt',row.names = 1))
+geo<-read.csv('distance.CSV',row.names = 1) # sample as row, env as column
 print(row.names(env)==row.names(geo)) #check
 env<-apply(env[,1:11],2,as.numeric) #transfer numeric
 #calculate distance
@@ -76,17 +77,10 @@ r3<-as.data.frame(r3)
 rownames(p3)<-colnames(env)
 rownames(r3)<-colnames(env)
 
-write.csv(p,file ="I:/Tidal/R_data/Fig. 5/p.csv", row.names = T, quote =FALSE)    
-write.csv(r,file ="I:/Tidal/R_data/Fig. 5/r.csv", row.names = T, quote =FALSE) 
-write.csv(p1,file ="I:/Tidal/R_data/Fig. 5/p1.csv", row.names = T, quote =FALSE)    
-write.csv(r1,file ="I:/Tidal/R_data/Fig. 5/r1.csv", row.names = T, quote =FALSE) 
-write.csv(p2,file ="I:/Tidal/R_data/Fig. 5/p2.csv", row.names = T, quote =FALSE)    
-write.csv(r2,file ="I:/Tidal/R_data/Fig. 5/r2.csv", row.names = T, quote =FALSE) 
-write.csv(p3,file ="I:/Tidal/R_data/Fig. 5/p3.csv", row.names = T, quote =FALSE)    
-write.csv(r3,file ="I:/Tidal/R_data/Fig. 5/r3.csv", row.names = T, quote =FALSE) 
+write.csv(p,file ="p.csv", row.names = T, quote =FALSE)    
+write.csv(r,file ="r.csv", row.names = T, quote =FALSE) 
 
-
-mantel<-read.delim('I:/Tidal/R_data/Fig. 5/mantel.txt')
+mantel<-read.delim('mantel.txt')
 
 library(linkET)
 install.packages('linkET')
@@ -109,7 +103,3 @@ qcorrplot(rcorr(env), type = "lower", diag = F, grid_size = 0.4,grid_col = "ligh
     sig_level = c(0.05, 0.01, 0.001), 
     sig_thres = 0.05
   ) 
-
-
-
-
