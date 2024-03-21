@@ -6,7 +6,7 @@ library(stats4)
 
 #using Non-linear least squares (NLS) to calculate R2:
 #spp: A community table with taxa as rows and samples as columns
-setwd("I:/Tidal/R_data/Fig.5")
+setwd("Fig.5")
 spp<-read.csv('host.txt',head=T,stringsAsFactors=F,row.names=1,sep = "\t")
 spp<-t(spp)
 N <- mean(apply(spp, 1, sum))
