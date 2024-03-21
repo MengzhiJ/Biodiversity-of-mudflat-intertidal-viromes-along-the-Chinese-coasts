@@ -2,7 +2,8 @@ library(ggplot2)
 library(reshape2)
 library(dplyr)
 library(readxl)
-data<-read_excel("I:/Tidal/R_data/Fig.4/Fig.4a.xlsx")
+setwd('D:/Tidal_spatial/R_data/github/Fig.4')
+data<-read_excel("Fig.4a.xlsx")
 data$letter=factor(data$taxonomy, levels=c("Chloroflexi","Bacteroidetes","Deltaproteobacteria","Gammaproteobacteria","Alphaproteobacteria","Unknown"))
 data$value=factor(data$variable, levels=c("Virus",'Microbe'))
 
@@ -21,4 +22,3 @@ p+geom_bar(stat="identity", color="#696969",width=0.35,size=0.4,position="stack"
                        panel.border = element_rect(size=1.2),
                        legend.text = element_text(size=15),
                        legend.title = element_text(size=16))+ theme(legend.position ="none")
-ggsave("Fig. 4a.tiff",width=5,height=5,path="I:/Tidal/R_data/Fig.4/") 
