@@ -2,9 +2,9 @@
 library(circlize)
 library(viridis)
 library(reshape2)
-
+setwd("Fig.4")
 #info dataset
-df <- read.csv("I:/Tidal/R_data/Fig.4/Fig.4d.csv", header=TRUE,stringsAsFactors = FALSE,check.names = FALSE)
+df <- read.csv("Fig.4d.csv", header=TRUE,stringsAsFactors = FALSE,check.names = FALSE)
 df_melt<-melt(df,id.vars = 'Region')
 colnames(df_melt)<-c('from','to','value')
 df_melt$to<-as.character(df_melt$to)
