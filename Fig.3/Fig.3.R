@@ -4,16 +4,16 @@ library(dplyr)
 library(readxl)
 library(ggpubr)
 library(ggpmisc)
+library(nlme)
 setwd('D:/Tidal_spatial/R_data/github/Fig.3')
 data<-read_excel('Fig.3.xlsx')
 data_m <- melt(data)
 write.csv(data_m,file="D:/Tidal_spatial/R_data/github/Fig.3/host.csv")
 #Fig.3b
-#Fig. 3b
 data<-read_excel('Fig.3.xlsx')
 ggplot(data, mapping = aes(x=Host,y=Virus))+
-  geom_point(size = 2.8, alpha = 0.8,shape=21,fill="lightgray")+
-  labs(x="Host microbial normalized abundance",y="Viral normalized abundance")+
+  geom_point(size = 3.3, alpha = 0.8,shape=21,fill="lightgray")+
+  labs(x="Normalized host microbial abundance",y="Normalized viral abundance")+
   geom_smooth(method = 'lm',se=F,size=1.4,fullrange=F,formula =y ~ poly(x, 2),color="#7AC5CD")+
   theme_test()+ theme(legend.position ="none")+
   theme(panel.grid.major=element_blank(),panel.grid.minor = element_blank(),
@@ -25,7 +25,6 @@ ggplot(data, mapping = aes(x=Host,y=Virus))+
         legend.title = element_text(size=16))+ylim(1500,15000)+xlim(1000,6700)+
   stat_poly_eq(aes(label = paste(..rr.label..,p.value.label, sep = "~`,`~")),size=5.5,
                formula =y ~ poly(x, 2),parse = TRUE)
-ggsave("Fig.3b.tiff",width=5.3,height=5,path="D:/")
 
 object1<-gls(Virus~poly(Host,2), data=data) #low AIC
 object2<-gls(Virus~poly(Host), data=data)
@@ -35,8 +34,8 @@ summary(object2)
 #Fig.3c
 data<-read_excel('Fig.3.xlsx')
 ggplot(data, mapping = aes(x=Host,y=Lifestyles))+
-  geom_point(aes(fill=Lifestyle),size = 2.3, alpha = 0.8,shape=21)+
-  labs(x="Host microbial normalized abundance",y="Relative proportion of viruses (%)")+
+  geom_point(aes(fill=Lifestyle),size = 3.2, alpha = 0.8,shape=21)+
+  labs(x="Normalized host microbial abundance",y="Relative proportion of viruses (%)")+
   geom_smooth(aes(color=Lifestyle),method = 'lm',se=F,size=1.2,fullrange=F,formula =y ~ poly(x, 2))+
   theme_test()+ theme(legend.position ="none")+scale_fill_manual(breaks=c("Lytic","Lysogenic"),
                                                                  values=c("#7AC5CD","#FF9B64"))+
@@ -52,15 +51,127 @@ ggplot(data, mapping = aes(x=Host,y=Lifestyles))+
   ylim(20,80)+ scale_x_continuous(breaks = seq(0,20000,2500))+xlim(1000,6700)
   stat_poly_eq(aes(color=Lifestyle,label = paste(..rr.label..,p.value.label, sep = "~`,`~")),
                formula =y ~ poly(x, 2),parse = TRUE)
-ggsave("Fig.3c.tiff",width=5,height=5,path="D:/")
+ggsave("Fig.3c.tiff",width=4.8,height=5,path="D:/")
 
-library(nlme)
 object1<-gls(Lifestyles~poly(Host,2), data=data) #low AIC
 object2<-gls(Lifestyles~poly(Host), data=data)
 summary(object1)
 summary(object2)
 
-#Fig.3c
+#Fig.3d and e
+library(Hmisc)
+setwd('D:/Tidal_spatial/R_data/github/Fig.3/VHR')
+#calculate the correlations between each virus and host pair
+virus_host_abundance<-read.csv("virus_host.csv", row.names = 1)
+pairs<-read.csv("pair.csv")
+correlation_matrix<-rcorr(as.matrix(t(virus_host_abundance)),type='pearson')
+correlation_matrix_r<-correlation_matrix$r
+correlation_matrix_p<-correlation_matrix$P
+correlation_r <- data.frame(
+  virus = pairs$virus,
+  host = pairs$host,
+  Correlation = correlation_matrix_r[cbind(match(pairs$host, rownames(correlation_matrix_r)), 
+                                           match(pairs$virus, colnames(correlation_matrix_r)))]
+)
+correlation_p <- data.frame(
+  virus = pairs$virus,
+  host = pairs$host,
+  Correlation = correlation_matrix_p[cbind(match(pairs$host, rownames(correlation_matrix_p)), 
+                                           match(pairs$virus, colnames(correlation_matrix_p)))]
+)
+
+correlation<-cbind(correlation_r,correlation_p[,3])
+write.table(correlation_matrix_r,file = "virus-host-r-matrix.csv", quote = FALSE,sep = ",")
+write.table(correlation_matrix_p,file = "virus-host-p-matrix.csv", quote = FALSE,sep = ",")
+write.table(correlation,file = "virus-host-correlation.csv", quote = FALSE,sep = ",") 
+
+#extract virus/host abundance according to significant virus-host pairs
+sig_pair <- read.csv("sig_pair.csv")
+extract <- match(sig_pair$host, rownames(virus_host_abundance))
+sig_host <- virus_host_abundance[extract, ]
+colnames(sig_host) <- colnames(virus_host_abundance)
+write.table(sig_host,file = "D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair/host_pair.csv", quote = FALSE,sep = ",")
+
+sig_pair <- read.csv("sig_pair.csv")
+extract <- match(sig_pair$virus, rownames(virus_host_abundance))
+sig_virus <- virus_host_abundance[extract, ]
+colnames(sig_virus) <- colnames(virus_host_abundance)
+write.table(sig_virus,file = "D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair/virus_pair.csv", quote = FALSE,sep = ",")
+
+# calculate VHR
+setwd('D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair')
+virus_abundance<-read.csv("virus_pair.csv", row.names = 1)
+host_abundance<-read.csv("host_pair.csv", row.names = 1)
+rows1 <- sig_pair$virus
+rows2 <- sig_pair$host
+division_results <- matrix(NA, nrow = length(rows1), ncol = ncol(virus_abundance))
+rownames(division_results) <- rows2
+colnames(division_results) <- colnames(virus_abundance)
+for (i in 1:length(rows1)) {
+  for (j in 1:ncol(virus_abundance)) {
+    division_results[i, j] <- virus_abundance[rows1[i], j] / host_abundance[rows2[i], j]
+  }
+}
+VHR<-as.data.frame(division_results)
+write.table(VHR,file = "VHR.csv", quote = FALSE,sep = ",")
+
+#calculate correlations between VHR and host of significant virus-host pairs
+VHR<-read.csv("VHR_LOG.csv", row.names = 1)
+HOST<-read.csv("host_pair_LOG.csv", row.names = 1)
+correlation<-cor(t(HOST),t(VHR),use = "pairwise.complete.obs",method="pearson")
+result<- data.frame(RowName = rownames(HOST), Value = NA)
+for (i in 1:nrow(correlation)) {
+  result$Value[i] <- correlation[i, i]
+}
+write.table(correlation,file = "VHR_host_correlation_matrix.csv", quote = FALSE,sep = ",")
+write.table(result,file = "VHR_host_correlation.csv", quote = FALSE,sep = ",")
+
+library(ggplot2)  
+data<-read_excel('Fig.3.xlsx')
+ggplot(data, aes(x=Rvalue,y=..density..))+  
+  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.5,fill="gray")+
+  geom_density(alpha=.65,fill="gray",color="gray",lwd=0.75)+
+  theme_test()+
+  theme(axis.title.x = element_text(size=18),axis.title.y = element_text(size=18),
+        axis.text.x = element_text(hjust =0.5,size=16,colour = 'black'),
+        axis.text.y=element_text(size=16,colour = 'black'),
+        panel.border = element_rect(size=1.3))+ylim(0,5)+xlim(-1,1.05)+
+  labs(x="",y="")
+ggsave("Fig.3d.tiff",width=4.5,height=4.6,path="D:/")
+
+
+data<-read_excel('Fig.3.xlsx')
+ggplot(data, aes(x=Rvalue,y=..density..))+  
+  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.5,fill="#7AC5CD")+
+  geom_density(alpha=.65,fill="#7AC5CD",color="#7AC5CD",lwd=0.8)+
+  theme_test()+
+  theme(axis.title.x = element_text(size=18),axis.title.y = element_text(size=18),
+        axis.text.x = element_text(hjust =0.5,size=16,colour = 'black'),
+        axis.text.y=element_text(size=16,colour = 'black'),
+        panel.border = element_rect(size=1.3))+ylim(0,1.3)+xlim(-1.05,1.05)+
+  labs(x="",y="")
+ggsave("Fig.3e.tiff",width=4.5,height=4.6,path="D:/")
+
+#Fig.3f
+data<-read.delim('HOST-virus-correlation.txt',header = T,row.names = 1)
+library(Hmisc)
+cor<-rcorr(as.matrix(data),type='pearson')
+r<-cor$r
+p<-cor$P
+
+write.table (r,file ="r.txt", row.names = T, col.names =T, quote =FALSE,sep = "\t",) 
+write.table (p,file ="p.txt", row.names = T, col.names =T, quote =F,sep = "\t",)
+r<-read.delim('r_VHR.txt',header = T,row.names = 1)
+p<-read.delim('p_VHR.txt',header = T,row.names = 1)
+p<-as.matrix(p)
+r<-as.matrix(r)
+cols<-colorRampPalette(c(rgb(91,194,205,max=255),rgb(255,255,255,max=255),rgb(255,128,64,max=255)))(200)
+library(corrplot)
+corrplot(r,tl.srt=45,tl.col = 'black',method='square',tl.cex=0.8,
+         p.mat = p,insig = 'label_sig',sig.level = c(0.001,0.01,0.05),pch.cex = 1.2,pch.col = 'black',cl.cex = 1,
+         col=cols,tl.pos="b",cl.pos = "n",cl.ratio = 0.25)
+ggsave("1.tiff",width=5,height=5,path="F:/")
+#Fig.3g
 #DOM analysis
 library(Hmisc)
 library(psych)
@@ -114,15 +225,12 @@ mycolor = c(Aliphatic="#81D1DA",Amino="#D4D7D5",
             Deltaproteobacteria="#8ACAFF",Chloroflexi="#A58BDB",Bacteroidetes="#EE8B78",	
             Acidobacteria="#E4F2E4",Actinobacteria="#94EED0",Planctomycetes="#EEEED1",	
             Gemmatimonadetes="#FFD700",	Cyanobacteria="#ADD8E6",Verrucomicrobia="#DAA520",
-            Firmicutes="#EEE685",Betaproteobacteria="#69B5FF"
-            
-)
+            Firmicutes="#EEE685",Betaproteobacteria="#69B5FF")
 
 #circos plot
 circos.clear()
 circos.par(start.degree = 90, gap.degree = 4, track.margin = c(-0.1, 0.1), points.overflow.warning = FALSE)
 par(mar = rep(0, 4))
-
 chordDiagram(
   x = df_melt,
   grid.col = mycolor,order = c("Aliphatic","Amino","Carbohydrate","Aromatic","Phenolic","Lignin","Lipid","Polyphenol","Protein","Tannin",
@@ -137,23 +245,3 @@ chordDiagram(
   link.arr.type = "big.arrow",
   link.sort = TRUE,
   link.largest.ontop = TRUE)
-
-#Fig.3e
-data<-read.delim('HOST-virus-correlation.txt',header = T,row.names = 1)
-library(Hmisc)
-cor<-rcorr(as.matrix(data),type='pearson')
-r<-cor$r
-p<-cor$P
-
-write.table (r,file ="r.txt", row.names = T, col.names =T, quote =FALSE) 
-write.table (p,file ="p.txt", row.names = T, col.names =T, quote =F)
-r<-read.delim('r.txt',header = T,row.names = 1)
-p<-read.delim('p.txt',header = T,row.names = 1)
-p<-as.matrix(p)
-r<-as.matrix(r)
-cols<-colorRampPalette(c(rgb(91,194,205,max=255),rgb(255,255,255,max=255),rgb(255,128,64,max=255)))(200)
-library(corrplot)
-corrplot(r,tl.srt=45,tl.col = 'black',method='square',tl.cex=0.8,
-         p.mat = p,insig = 'label_sig',sig.level = c(0.001,0.01,0.05),pch.cex = 1.2,pch.col = 'black',cl.cex = 1,
-         col=cols,tl.pos="b",cl.pos = "n",cl.ratio = 0.25)
-ggsave("1.tiff",width=5,height=5,path="F:/")
