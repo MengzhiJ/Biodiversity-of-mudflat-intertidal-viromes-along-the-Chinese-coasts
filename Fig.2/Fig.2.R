@@ -39,6 +39,7 @@ ggplot(data_m, aes(x=COG, y=value),color=COG) +
          legend.text = element_text(size=10),legend.title = element_blank())+
   theme(legend.position='none')+guides(fill = guide_legend(ncol = 2, byrow = TRUE))
 ggsave("Fig. 2a.tiff",width=6,height=3.8, path="D:/")  
+
 #Fig.2b
 library(ggplot2)
 library(reshape2)
