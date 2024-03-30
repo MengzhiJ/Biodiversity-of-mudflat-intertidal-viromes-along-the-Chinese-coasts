@@ -60,6 +60,7 @@ summary(object2)
 
 #Fig.3d and e
 library(Hmisc)
+library(psych)
 setwd('D:/Tidal_spatial/R_data/github/Fig.3/VHR')
 #calculate the correlations between each virus and host pair
 virus_host_abundance<-read.csv("virus_host.csv", row.names = 1)
@@ -116,15 +117,22 @@ VHR<-as.data.frame(division_results)
 write.table(VHR,file = "VHR.csv", quote = FALSE,sep = ",")
 
 #calculate correlations between VHR and host of significant virus-host pairs
-VHR<-read.csv("VHR_LOG.csv", row.names = 1)
-HOST<-read.csv("host_pair_LOG.csv", row.names = 1)
-correlation<-cor(t(HOST),t(VHR),use = "pairwise.complete.obs",method="pearson")
-result<- data.frame(RowName = rownames(HOST), Value = NA)
-for (i in 1:nrow(correlation)) {
-  result$Value[i] <- correlation[i, i]
+VHR<-as.data.frame(t(read.csv("VHR_LOG.csv", row.names = 1)))
+HOST<-as.data.frame(t(read.csv("host_pair_LOG.csv", row.names = 1)))
+correlation<-corr.test(HOST,VHR,use="pairwise",method="pearson")
+correlation_R<-t(correlation$r)
+correlation_P<-t(correlation$p)
+R<- data.frame(RowName = rownames(correlation_R), Value = NA)
+for (i in 1:nrow(correlation_R)) {
+  R$Value[i] <- correlation_R[i, i]
 }
-write.table(correlation,file = "VHR_host_correlation_matrix.csv", quote = FALSE,sep = ",")
-write.table(result,file = "VHR_host_correlation.csv", quote = FALSE,sep = ",")
+P<- data.frame(RowName = rownames(correlation_P), Value = NA)
+for (i in 1:nrow(correlation_P)) {
+  P$Value[i] <- correlation_P[i, i]
+}
+correlation_RP<-cbind(R,P$Value)
+write.table(correlation_RP,file = "VHR_host_correlation.csv", quote = FALSE,sep = ",")
+
 
 library(ggplot2)  
 data<-read_excel('Fig.3.xlsx')
