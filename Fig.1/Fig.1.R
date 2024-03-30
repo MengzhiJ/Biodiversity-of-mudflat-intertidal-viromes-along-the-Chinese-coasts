@@ -82,6 +82,7 @@ ggplot() +geom_sf(data = HN,color='#5B5B5B',fill="#FCFCFC",size=0.5)+geom_sf(dat
         legend.title = element_blank())+
   theme(plot.background = element_rect(fill="white",
                                        color="white",size = 0.5))+geom_point(data=mydata,aes(x=Latitude,y=Longitude),color="#ff9d6f",size=1.5,shape=15)
+
 #Fig. 1b
 library(ggplot2)
 library(tidyverse)
