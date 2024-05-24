@@ -1,5 +1,6 @@
 # Biodiversity of mudflat intertidal viromes along the Chinese coasts
-##R code for Figs in manuscript: "Biodiversity of mudflat intertidal viromes along the Chinese coasts"
+Code availability
+R code for Figs in manuscript: "Biodiversity of mudflat intertidal viromes along the Chinese coasts"
 
 The raw data for generating the figures can be found in the corresponding subfolder.
 
