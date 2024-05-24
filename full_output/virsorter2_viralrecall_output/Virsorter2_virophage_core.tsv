@@ -1,0 +1,16 @@
+seqname	lavidaviridae	max_score	max_score_group	length	hallmark	viral	cellular
+HN_SY_contig_15167113||full	1.000	1.000	lavidaviridae	10855	1	44.400	0.000
+JS_LYG_contig_18494123||full	0.713	0.713	lavidaviridae	8549	0	33.300	16.700
+JS_LYG_contig_25216545||full	1.000	1.000	lavidaviridae	18891	0	30.000	0.000
+JS_YC_contig_14780114||full	1.000	1.000	lavidaviridae	16503	1	38.900	0.000
+LN_DD_contig_15737168||full	0.973	0.973	lavidaviridae	9170	0	25.000	0.000
+LN_DD_contig_2691957||full	1.000	1.000	lavidaviridae	6484	1	50.000	0.000
+LN_DD_contig_6853081||full	0.987	0.987	lavidaviridae	18900	0	34.800	0.000
+LN_DD_contig_9559574||full	0.973	0.973	lavidaviridae	10775	0	25.000	0.000
+SD_DY_contig_22740131||full||full	0.987	0.987	lavidaviridae	22668	1	46.200	0.000
+ZJ_NB_contig_1054277||full	1.000	1.000	lavidaviridae	5359	1	28.600	0.000
+ZJ_NB_contig_22374052||full	0.980	0.980	lavidaviridae	10266	0	50.000	0.000
+ZJ_NB_contig_25857765||full	0.987	0.987	lavidaviridae	19772	0	34.800	0.000
+ZJ_WZ_contig_18754335||full	1.000	1.000	lavidaviridae	9152	0	44.400	0.000
+ZJ_WZ_contig_5376964||full||full	1.000	1.000	lavidaviridae	9997	0	45.500	0.000
+ZJ_WZ_contig_8342565||full	0.713	0.713	lavidaviridae	6001	0	25.000	8.300
