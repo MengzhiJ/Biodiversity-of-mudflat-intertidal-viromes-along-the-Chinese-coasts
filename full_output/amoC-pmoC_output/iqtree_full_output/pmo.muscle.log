@@ -1,0 +1,361 @@
+IQ-TREE multicore version 2.0.3 for Linux 64-bit built Dec 20 2020
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    master (AVX512, FMA3, 125 GB RAM)
+Command: iqtree -s pmo.muscle -m MFP -bb 1000 -T 20 -alrt 1000
+Seed:    775900 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Tue May 14 15:51:01 2024
+Kernel:  AVX+FMA - 20 threads (64 CPU cores detected)
+
+Reading alignment file pmo.muscle ... Fasta format detected
+Alignment most likely contains protein sequences
+Alignment has 80 sequences with 318 columns, 298 distinct patterns
+253 parsimony-informative, 16 singleton sites, 49 constant sites
+                               Gap/Ambiguity  Composition  p-value
+   1  A0A060HT58_amo                  41.19%    passed     58.36%
+   2  A0A060HM27_amo                  41.19%    passed     84.17%
+   3  A0A060HCH5_amo                  41.19%    passed     72.33%
+   4  A0A060HLS1_amo                  42.14%    passed     97.82%
+   5  SD_DY_contig_26989810_27        41.19%    passed     95.38%
+   6  A0A060HQE0_amo                  41.19%    passed     84.00%
+   7  K0IMG9_amo                      41.19%    passed     99.45%
+   8  A0A060HNS7_amo                  41.19%    passed     95.91%
+   9  WP_337863180_amo                41.19%    passed     95.09%
+  10  HEX7818531_amo                  41.19%    passed     95.01%
+  11  HJS65664_amo                    41.19%    passed     95.01%
+  12  HVP81853_amo                    41.19%    passed     95.01%
+  13  HZC48339_amo                    41.19%    passed     89.49%
+  14  MCC2647558_amo                  41.19%    passed     89.49%
+  15  K0IHK8_amo                      42.14%    passed     96.27%
+  16  MBA3749431_amo                  41.19%    passed     96.39%
+  17  HEU4824525_amo                  41.19%    passed     97.88%
+  18  MDW0315520_amo                  41.19%    passed     95.87%
+  19  HKI10255_amo                    41.19%    passed     96.26%
+  20  MDF2782887_amo                  41.19%    passed     95.79%
+  21  MCJ7636709_amo                  41.19%    passed     93.84%
+  22  HZE77345_amo                    41.19%    passed     87.91%
+  23  HEX5187049_amo                  41.19%    passed     93.84%
+  24  ZJ_NB_contig_28413026||full_3   41.19%    passed     71.94%
+  25  A0A128A5D3_amo                  41.19%    passed     92.19%
+  26  V6AV14_amo                      41.19%    passed     92.79%
+  27  A0A075I7P9_amo                  41.19%    passed     85.89%
+  28  A4GIX5_amo                      37.42%    passed     89.05%
+  29  V6AUR0_amo                      41.19%    passed     94.66%
+  30  A9A4U4_amo                      40.25%    passed     86.78%
+  31  ZJ_WZ_contig_21932960_5         41.19%    passed     85.94%
+  32  A0A0D5C0I4_amo                  41.19%    passed     93.41%
+  33  A9QPD8_pmo                       9.75%    passed     41.65%
+  34  I0JY71_pmo                       9.75%    passed     16.48%
+  35  MBL4607145_pmo                  23.27%    passed     46.83%
+  36  WP_289274549_pmo                22.33%    passed     76.23%
+  37  WP_135281517_pmo                25.47%    passed     16.68%
+  38  NCU01081_pmo                    27.67%    passed     23.17%
+  39  ZJ_WZ_contig_9427673_3          23.27%    passed     74.10%
+  40  PCI41358_pmo                    24.84%    passed     94.67%
+  41  PCJ16607_pmo                    24.84%    passed     93.91%
+  42  MBV1869824_pmo                  22.64%    passed     52.56%
+  43  PCI51492_pmo                    26.73%    passed     49.00%
+  44  PCJ21630_pmo                    26.73%    passed     73.73%
+  45  MBV1872017_pmo                  22.96%    passed     99.42%
+  46  MBV1869960_pmo                  24.21%    passed     97.82%
+  47  MBV1871176_pmo                  24.21%    passed     94.90%
+  48  MBV1870405_pmo                  22.01%    passed     70.08%
+  49  HEX4975247_pmo                  24.53%    passed     65.37%
+  50  PCI44781_pmo                    26.10%    passed     99.49%
+  51  PCI46238_pmo                    25.16%    passed     95.60%
+  52  PCJ16718_pmo                    23.27%    passed     99.77%
+  53  MDY6941727_pmo                  27.04%    passed     40.74%
+  54  WP_167792454_pmo                30.19%    passed     82.55%
+  55  HBC58429_pmo                    25.47%    passed     91.50%
+  56  PCJ15357_pmo                    24.21%    passed     94.20%
+  57  PCI52102_pmo                    23.90%    passed     93.59%
+  58  PCJ22067_pmo                    27.04%    passed     73.88%
+  59  PCI41274_pmo                    26.10%    passed     97.24%
+  60  MDY6944016_pmo                  27.04%    passed     86.29%
+  61  HJO34646_pmo                    27.67%    passed     95.31%
+  62  MDY6812517_pmo                  27.67%    passed     95.31%
+  63  HMM44472_pmo                    27.04%    passed     55.25%
+  64  MDY6956453_pmo                  27.36%    passed     68.32%
+  65  WP_135281490_pmo                27.36%    passed     70.80%
+  66  HXF07026_pmo                    26.42%    passed     71.33%
+  67  WP_135281813_pmo                27.36%    passed     74.73%
+  68  MDY6955767_pmo                  27.36%    passed     71.89%
+  69  D5MIN0_pmo                      18.87%    passed     16.67%
+  70  A9QPE2_pmo                      13.52%    passed     95.33%
+  71  A9QPE5_pmo                      13.21%    passed     62.62%
+  72  A9QPE8_pmo                      13.21%    passed     57.97%
+  73  I4EB56_pmo                      19.18%    passed     99.59%
+  74  Q0ZKX7_pmo                      19.81%    passed     92.02%
+  75  G4SZ62_pmo                      21.38%    passed     82.57%
+  76  Q25BV4_pmo                      21.38%    passed     87.71%
+  77  A4PDX6_pmo                      17.61%    passed     78.55%
+  78  O05111_pmo                       9.12%    passed     44.36%
+  79  Q60C16_pmo                      20.44%    passed     55.84%
+  80  Q9XDB7_pmo                      20.44%    passed     52.47%
+****  TOTAL                           30.16%  0 sequences failed composition chi2 test (p-value<5%; df=19)
+NOTE: HJS65664_amo is identical to HEX7818531_amo but kept for subsequent analysis
+NOTE: MCC2647558_amo is identical to HZC48339_amo but kept for subsequent analysis
+NOTE: MDY6812517_pmo is identical to HJO34646_pmo but kept for subsequent analysis
+NOTE: 1 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: HVP81853_amo (identical to HEX7818531_amo) is ignored but added at the end
+Alignment was printed to pmo.muscle.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to pmo.muscle.uniqueseq.phy
+
+NOTE: Restoring information from model checkpoint file pmo.muscle.model.gz
+
+CHECKPOINT: Initial tree restored
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+Perform fast likelihood tree search using LG+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -12731.843
+Optimal log-likelihood: -12731.835
+Proportion of invariable sites: 0.052
+Gamma shape alpha: 1.104
+Parameters optimization took 1 rounds (0.049 sec)
+Time for fast ML tree search: 0.748 seconds
+
+NOTE: ModelFinder requires 40 MB RAM!
+ModelFinder will test up to 546 protein models (sample size: 318) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  1  LG            13415.437    155 27140.874    27439.393    27723.992
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  2  LG+I          13241.367    156 26794.733    27098.982    27381.613
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  3  LG+G4         12740.563    156 25793.126    26097.375    26380.006
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  4  LG+I+G4       12731.843    157 25777.686    26087.761    26368.329
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  5  LG+R2         12832.569    157 25979.138    26289.213    26569.780
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  6  LG+R3         12745.316    159 25808.632    26130.657    26406.798
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  7  LG+R4         12731.197    161 25784.394    26118.778    26390.084
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+  8  LG+R5         12730.504    163 25787.009    26134.177    26400.223
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 17  LG+F+I+G4     12608.257    176 25568.514    26010.387    26230.635
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 30  WAG+I+G4      12863.633    157 26041.267    26351.342    26631.909
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 43  WAG+F+I+G4    12698.005    176 25748.009    26189.882    26410.130
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 56  JTT+I+G4      12942.119    157 26198.237    26508.312    26788.879
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 69  JTT+F+I+G4    12772.279    176 25896.558    26338.430    26558.679
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 82  JTTDCMut+I+G4 12941.776    157 26197.553    26507.628    26788.195
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+ 95  JTTDCMut+F+I+G4 12769.700    176 25891.399    26333.272    26553.520
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+108  DCMut+I+G4    13058.096    157 26430.191    26740.266    27020.834
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+121  DCMut+F+I+G4  12761.315    176 25874.629    26316.502    26536.750
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+134  VT+I+G4       12861.477    157 26036.954    26347.029    26627.596
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+147  VT+F+I+G4     12699.788    176 25751.577    26193.449    26413.698
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+160  PMB+I+G4      12848.606    157 26011.213    26321.288    26601.855
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+173  PMB+F+I+G4    12751.179    176 25854.358    26296.230    26516.479
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+186  Blosum62+I+G4 12833.651    157 25981.302    26291.377    26571.944
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+199  Blosum62+F+I+G4 12727.467    176 25806.933    26248.805    26469.054
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+212  Dayhoff+I+G4  13058.005    157 26430.010    26740.085    27020.652
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+225  Dayhoff+F+I+G4 12761.074    176 25874.148    26316.021    26536.269
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+238  mtREV+I+G4    13175.373    157 26664.747    26974.822    27255.389
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+251  mtREV+F+I+G4  12874.502    176 26101.004    26542.876    26763.125
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+264  mtART+I+G4    13109.360    157 26532.720    26842.795    27123.362
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+277  mtART+F+I+G4  12808.887    176 25969.774    26411.646    26631.895
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+290  mtZOA+I+G4    12806.637    157 25927.274    26237.349    26517.916
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+303  mtZOA+F+I+G4  12645.129    176 25642.257    26084.130    26304.378
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+316  mtMet+I+G4    13139.074    157 26592.147    26902.222    27182.789
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+329  mtMet+F+I+G4  12795.292    176 25942.585    26384.457    26604.706
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+342  mtVer+I+G4    13335.024    157 26984.049    27294.124    27574.691
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+355  mtVer+F+I+G4  13047.563    176 26447.126    26888.998    27109.247
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+368  mtInv+I+G4    13170.024    157 26654.049    26964.124    27244.691
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+381  mtInv+F+I+G4  12669.845    176 25691.689    26133.561    26353.810
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+394  mtMAM+I+G4    13540.480    157 27394.960    27705.035    27985.602
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+407  mtMAM+F+I+G4  13261.378    176 26874.756    27316.628    27536.877
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+420  HIVb+I+G4     13278.392    157 26870.784    27180.859    27461.426
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+433  HIVb+F+I+G4   13108.122    176 26568.244    27010.116    27230.365
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+446  HIVw+I+G4     13969.436    157 28252.872    28562.947    28843.514
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+459  HIVw+F+I+G4   13494.248    176 27340.497    27782.369    28002.618
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+472  FLU+I+G4      13224.116    157 26762.232    27072.307    27352.874
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+485  FLU+F+I+G4    12947.533    176 26247.066    26688.938    26909.187
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+498  rtREV+I+G4    12902.828    157 26119.655    26429.730    26710.297
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+511  rtREV+F+I+G4  12684.266    176 25720.532    26162.405    26382.653
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+524  cpREV+I+G4    12889.125    157 26092.249    26402.324    26682.891
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+537  cpREV+F+I+G4  12706.416    176 25764.831    26206.703    26426.952
+Akaike Information Criterion:           LG+F+I+G4
+Corrected Akaike Information Criterion: LG+F+I+G4
+Bayesian Information Criterion:         LG+F+I+G4
+Best-fit model: LG+F+I+G4 chosen according to BIC
+
+All model information printed to pmo.muscle.model.gz
+CPU time for ModelFinder: 275.502 seconds (0h:4m:35s)
+Wall-clock time for ModelFinder: 13.879 seconds (0h:0m:13s)
+Generating 1000 samples for ultrafast bootstrap (seed: 775900)...
+
+NOTE: 16 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -nt AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+Thoroughly optimizing +I+G parameters from 10 start values...
+Init pinv, alpha: 0.000, 1.063 / Estimate: 0.000, 0.918 / LogL: -12614.905
+Init pinv, alpha: 0.017, 1.063 / Estimate: 0.043, 1.055 / LogL: -12608.279
+Init pinv, alpha: 0.034, 1.063 / Estimate: 0.043, 1.054 / LogL: -12608.275
+Init pinv, alpha: 0.051, 1.063 / Estimate: 0.048, 1.066 / LogL: -12608.263
+Init pinv, alpha: 0.068, 1.063 / Estimate: 0.047, 1.062 / LogL: -12608.259
+Init pinv, alpha: 0.086, 1.063 / Estimate: 0.048, 1.062 / LogL: -12608.274
+Init pinv, alpha: 0.103, 1.063 / Estimate: 0.048, 1.064 / LogL: -12608.272
+Init pinv, alpha: 0.120, 1.063 / Estimate: 0.047, 1.061 / LogL: -12608.260
+Init pinv, alpha: 0.137, 1.063 / Estimate: 0.047, 1.062 / LogL: -12608.259
+Init pinv, alpha: 0.154, 1.063 / Estimate: 0.047, 1.062 / LogL: -12608.261
+Optimal pinv,alpha: 0.047, 1.062 / LogL: -12608.259
+
+Parameters optimization took 1.487 sec
+Computing ML distances based on estimated model parameters... 1.097 sec
+Computing BIONJ tree...
+0.004 seconds
+Log-likelihood of BIONJ tree: -12809.869
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 1.683 second
+Computing log-likelihood of 98 initial trees ... 2.691 seconds
+Current best score: -12608.259
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -12607.453
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 2: -12596.346
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 6: -12588.228
+Iteration 10 / LogL: -12597.535 / Time: 0h:0m:13s
+Iteration 20 / LogL: -12600.091 / Time: 0h:0m:21s
+Finish initializing candidate tree set (20)
+Current best tree score: -12588.228 / CPU time: 19.569
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 25: -12587.663
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 29: -12586.799
+Iteration 30 / LogL: -12587.793 / Time: 0h:0m:30s (0h:1m:42s left)
+Iteration 40 / LogL: -12587.045 / Time: 0h:0m:39s (0h:1m:29s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 42: -12585.489
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 45: -12583.252
+Iteration 50 / LogL: -12585.898 / Time: 0h:0m:48s (0h:1m:33s left)
+Log-likelihood cutoff on original alignment: -12634.633
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 54: -12583.095
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 55: -12581.651
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 56: -12581.617
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 59: -12581.409
+Iteration 60 / LogL: -12584.084 / Time: 0h:0m:57s (0h:1m:37s left)
+Estimate model parameters (epsilon = 0.100)
+UPDATE BEST LOG-LIKELIHOOD: -12581.375
+Iteration 70 / LogL: -12581.760 / Time: 0h:1m:6s (0h:1m:25s left)
+Iteration 80 / LogL: -12591.409 / Time: 0h:1m:15s (0h:1m:15s left)
+Iteration 90 / LogL: -12582.096 / Time: 0h:1m:25s (0h:1m:5s left)
+Iteration 100 / LogL: -12581.800 / Time: 0h:1m:34s (0h:0m:56s left)
+Log-likelihood cutoff on original alignment: -12634.633
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.983
+NOTE: UFBoot does not converge, continue at least 100 more iterations
+Iteration 110 / LogL: -12590.721 / Time: 0h:1m:43s (0h:1m:25s left)
+Iteration 120 / LogL: -12583.641 / Time: 0h:1m:52s (0h:1m:15s left)
+Iteration 130 / LogL: -12581.752 / Time: 0h:2m:2s (0h:1m:6s left)
+Iteration 140 / LogL: -12588.075 / Time: 0h:2m:11s (0h:0m:56s left)
+Iteration 150 / LogL: -12594.117 / Time: 0h:2m:20s (0h:0m:47s left)
+Log-likelihood cutoff on original alignment: -12634.633
+Iteration 160 / LogL: -12585.013 / Time: 0h:2m:29s (0h:0m:37s left)
+Iteration 170 / LogL: -12592.436 / Time: 0h:2m:39s (0h:0m:28s left)
+Iteration 180 / LogL: -12586.358 / Time: 0h:2m:48s (0h:0m:18s left)
+Iteration 190 / LogL: -12581.737 / Time: 0h:2m:57s (0h:0m:9s left)
+Iteration 200 / LogL: -12581.466 / Time: 0h:3m:6s (0h:0m:0s left)
+Log-likelihood cutoff on original alignment: -12634.633
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.998
+TREE SEARCH COMPLETED AFTER 200 ITERATIONS / Time: 0h:3m:7s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -12581.375
+Optimal log-likelihood: -12581.375
+Proportion of invariable sites: 0.045
+Gamma shape alpha: 1.056
+Parameters optimization took 1 rounds (0.048 sec)
+BEST SCORE FOUND : -12581.375
+
+Testing tree branches by SH-like aLRT with 1000 replicates...
+0.159 sec.
+Creating bootstrap support values...
+Split supports printed to NEXUS file pmo.muscle.splits.nex
+Total tree length: 23.763
+
+Total number of iterations: 200
+CPU time used for tree search: 3623.715 sec (1h:0m:23s)
+Wall-clock time used for tree search: 185.137 sec (0h:3m:5s)
+Total CPU time used: 3666.376 sec (1h:1m:6s)
+Total wall-clock time used: 187.448 sec (0h:3m:7s)
+
+Computing bootstrap consensus tree...
+Reading input file pmo.muscle.splits.nex...
+79 taxa and 701 splits.
+Consensus tree written to pmo.muscle.contree
+Reading input trees file pmo.muscle.contree
+Log-likelihood of consensus tree: -12581.738
+
+Analysis results written to: 
+  IQ-TREE report:                pmo.muscle.iqtree
+  Maximum-likelihood tree:       pmo.muscle.treefile
+  Likelihood distances:          pmo.muscle.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          pmo.muscle.splits.nex
+  Consensus tree:                pmo.muscle.contree
+  Screen log file:               pmo.muscle.log
+
+Date and Time: Tue May 14 15:54:23 2024
