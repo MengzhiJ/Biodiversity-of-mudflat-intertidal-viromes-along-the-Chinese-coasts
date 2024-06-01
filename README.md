@@ -18,7 +18,7 @@ The full outputs of genomad v1.7.4 (score > 0.7), including the taxonomic assign
 ##### 5. iphop_output
 The full outputs of iphop v1.3.2 (false ratio < 10%), including the host prediction of intertidal viruses.
 ##### 6. kegg-decoder_output
-This subfolder includes the metabolic pathway annotations of microbial operational taxonomic units (mOTUs) belonging to Deltaproteobacteria, Thermodesulfobacteria, and Thaumarchaeota conducted by KEGG-Decoder module. Of these, the list files indicate the completeness of each metabolic pathway involved for each mOTUs.
+This subfolder includes the metabolic pathway annotations of microbial operational taxonomic units (mOTUs) belonging to Deltaproteobacteria, Thermodesulfobacteria, and Thaumarchaeota conducted by KEGG-Decoder module. Of these, the list files indicate the completeness of each metabolic pathway involved for each mOTU, while the xlsx file includes the abundances and VHRs of these lineages used for correlation analysis.
 ##### 7. viralRefseq_align_output
 The identification of viral-like genes within intertidal viruses based on the viral RefSeq. 
 ##### 8. virsorter2_viralrecall_output
