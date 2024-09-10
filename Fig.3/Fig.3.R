@@ -1,3 +1,5 @@
+#R_code (v4.2.0) for Figure 3
+#load all need packages
 library(ggplot2)
 library(reshape2)
 library(dplyr)
@@ -5,95 +7,10 @@ library(readxl)
 library(ggpubr)
 library(ggpmisc)
 library(nlme)
-setwd('D:/Tidal_spatial/R_data/github/Fig.3')
-data<-read_excel('Fig.3.xlsx')
-data_m <- melt(data)
-write.csv(data_m,file="D:/Tidal_spatial/R_data/github/Fig.3/host.csv")
-#S3a
-data<-read_excel("Fig.3.xlsx") 
-ggplot(data, mapping = aes(x=Host,y=Virus,color=Type))+
-  geom_point(size = 2.5, alpha = 0.65,shape=16,)+
-  labs(x="Normalized prokaryotic host abundance",y="Normalized viral abundance")+
-  theme(axis.line = element_line(color="black"))+
-  geom_smooth(color="#95D1D7",method = 'lm',se=T,size=1.5,fullrange=T,fill="lightgray")+
-  theme_test()+ 
-  theme(panel.grid.major=element_blank(),panel.grid.minor = element_blank(),
-        axis.title.x = element_text(size=16),axis.title.y = element_text(size=16),
-        axis.text.x = element_text(hjust =0.5,size=14.5,colour = 'black'),
-        axis.text.y=element_text(size=14.5,colour = 'black'),
-        panel.border = element_rect(size=1.2),
-        legend.text = element_text(size=13),legend.title = element_blank())+
-  guides(color=guide_legend(ncol = 2))
-stat_poly_eq(aes(label = paste(..rr.label.., ..p.value.label.., sep = "~`,`~")),size=4.5,
-             label.x = )
-data<-read.delim('hOST-virus-correlation.txt',header = T,row.names = 1)
-#S3b
-library(Hmisc)
-cor<-rcorr(as.matrix(data),type='pearson')
-r<-cor$r
-p<-cor$P
-write.table (r,file ="r.txt", row.names = T, col.names =T, quote =FALSE) 
-write.table (p,file ="p.txt", row.names = T, col.names =T, quote =F)
-mydata<-read_excel("Fig.3.xlsx")
-ggplot(mydata, aes(R, Type)) +
-  geom_segment(aes(x=0, 
-                   xend=R,
-                   y=Type, 
-                   yend=Type))+
-  geom_point(aes(fill=P),size=3,shape=21)+scale_fill_manual(breaks=c("a","b"),values=c("#7AC5CD","white"))+
-  xlim(-1,1)+theme_test()+ theme(legend.position ="none")+
-  theme(panel.grid.major=element_blank(),panel.grid.minor = element_blank(),
-        axis.title.x = element_text(size=12),axis.title.y = element_text(size=12),
-        axis.text.x = element_text(hjust =0.5,size=10.5,colour = 'black'),
-        axis.text.y=element_text(size=10.5,colour = 'black'),
-        panel.border = element_rect(size=1.2),
-        legend.text = element_text(size=15),
-        legend.title = element_text(size=16))+labs(x="Pearson correlation coefficients",y="")
-#S3d
-data<-read_excel('Fig.3.xlsx')
-ggplot(data, mapping = aes(x=Host,y=Virus))+
-  geom_point(size = 3.3, alpha = 0.8,shape=21,fill="lightgray")+
-  labs(x="Normalized host microbial abundance",y="Normalized viral abundance")+
-  geom_smooth(method = 'lm',se=F,size=1.4,fullrange=F,formula =y ~ poly(x, 2),color="#7AC5CD")+
-  theme_test()+ theme(legend.position ="none")+
-  theme(panel.grid.major=element_blank(),panel.grid.minor = element_blank(),
-        axis.title.x = element_text(size=17),axis.title.y = element_text(size=17),
-        axis.text.x = element_text(hjust =0.5,size=15.5,colour = 'black'),
-        axis.text.y=element_text(size=15.5,colour = 'black'),
-        panel.border = element_rect(size=1.2),
-        legend.text = element_text(size=15),
-        legend.title = element_text(size=16))+ylim(1500,15000)+xlim(1000,6700)+
-  stat_poly_eq(aes(label = paste(..rr.label..,p.value.label, sep = "~`,`~")),size=5.5,
-               formula =y ~ poly(x, 2),parse = TRUE)
-
-object1<-gls(Virus~poly(Host,2), data=data) #low AIC
-object2<-gls(Virus~poly(Host), data=data)
-summary(object1)
-summary(object2)
-
-#S3e
-data<-read_excel('Fig.3.xlsx')
-ggplot(data, mapping = aes(x=Host,y=Virus,fill=Type))+
-  geom_point(size = 3.5, alpha = 0.65,shape=21,aes(fill=Type))+
-  labs(x="Normalized host microbial abundance",y="Normalized viral abundance")+
-  theme(axis.line = element_line(color="black"))+
-  geom_smooth(aes(color=Type),method = 'lm',se=T,size=0.8,fullrange=T,alpha=0.1)+
-  theme_test()+ theme(legend.position ="none")+scale_fill_manual(breaks=c("Thaumarchaeota","Planctomycetes"),
-                                                                 values=c("#7AC5CD","#FF8040"))+
-  theme(panel.grid.major=element_blank(),panel.grid.minor = element_blank(),
-        axis.title.x = element_text(size=18),axis.title.y = element_text(size=18),
-        axis.text.x = element_text(hjust =0.5,size=16,colour = 'black'),
-        axis.text.y=element_text(size=16,colour = 'black'),
-        panel.border = element_rect(size=1.2),
-        legend.text = element_text(size=15),
-        legend.title = element_text(size=16))+
-  stat_poly_eq(aes(color=Type,label = paste(..rr.label.., ..p.value.label.., sep = "~`,`~")),size=5.5,
-               label.x = )
-
-#Fig.3b and c
 library(Hmisc)
 library(psych)
-setwd('D:/Tidal_spatial/R_data/github/Fig.3/VHR')
+setwd('D:/Tidal_spatial/R_data/github/Fig.3/raw_data_for_figure3/')
+#Fig.3b and c
 #calculate the correlations between each virus and host pair
 virus_host_abundance<-read.csv("virus_host.csv", row.names = 1)
 pairs<-read.csv("pair.csv")
@@ -105,13 +22,14 @@ correlation_r <- data.frame(
   host = pairs$host,
   Correlation = correlation_matrix_r[cbind(match(pairs$host, rownames(correlation_matrix_r)), 
                                            match(pairs$virus, colnames(correlation_matrix_r)))]
-)
+  )
+
 correlation_p <- data.frame(
   virus = pairs$virus,
   host = pairs$host,
   Correlation = correlation_matrix_p[cbind(match(pairs$host, rownames(correlation_matrix_p)), 
                                            match(pairs$virus, colnames(correlation_matrix_p)))]
-)
+  )
 
 correlation<-cbind(correlation_r,correlation_p[,3])
 write.table(correlation_matrix_r,file = "virus-host-r-matrix.csv", quote = FALSE,sep = ",")
@@ -123,16 +41,15 @@ sig_pair <- read.csv("sig_pair.csv")
 extract <- match(sig_pair$host, rownames(virus_host_abundance))
 sig_host <- virus_host_abundance[extract, ]
 colnames(sig_host) <- colnames(virus_host_abundance)
-write.table(sig_host,file = "D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair/host_pair.csv", quote = FALSE,sep = ",")
+write.table(sig_host,file = "host_pair.csv", quote = FALSE,sep = ",")
 
 sig_pair <- read.csv("sig_pair.csv")
 extract <- match(sig_pair$virus, rownames(virus_host_abundance))
 sig_virus <- virus_host_abundance[extract, ]
 colnames(sig_virus) <- colnames(virus_host_abundance)
-write.table(sig_virus,file = "D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair/virus_pair.csv", quote = FALSE,sep = ",")
+write.table(sig_virus,file = "virus_pair.csv", quote = FALSE,sep = ",")
 
 # calculate VHR
-setwd('D:/Tidal_spatial/R_data/github/Fig.3/VHR/pair')
 virus_abundance<-read.csv("virus_pair.csv", row.names = 1)
 host_abundance<-read.csv("host_pair.csv", row.names = 1)
 rows1 <- sig_pair$virus
@@ -165,31 +82,39 @@ for (i in 1:nrow(correlation_P)) {
 correlation_RP<-cbind(R,P$Value)
 write.table(correlation_RP,file = "VHR_host_correlation.csv", quote = FALSE,sep = ",")
 
-library(ggplot2)  
+#Fig.3b,c map
 data<-read_excel('Fig.3.xlsx')
-ggplot(data, aes(x=Rvalue,y=..density..))+  
-  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.5,fill="gray")+
-  geom_density(alpha=.65,fill="gray",color="gray",lwd=0.75)+
+ggplot(data, aes(x=correlation_r,y=..density..))+  
+  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.18,fill="gray")+
+  geom_density(alpha=.65,fill="gray",color="gray",lwd=0.22)+
   theme_test()+
-  theme(axis.title.x = element_text(size=18),axis.title.y = element_text(size=18),
-        axis.text.x = element_text(hjust =0.5,size=16,colour = 'black'),
-        axis.text.y=element_text(size=16,colour = 'black'),
-        panel.border = element_rect(size=1.3))+ylim(0,5)+xlim(-1,1.05)+
+  theme(axis.title.x = element_text(size=6.5),
+        axis.title.y = element_text(size=6.5),
+        axis.text.x = element_text(hjust =0.5,size=5.5,colour = 'black'),
+        axis.text.y=element_text(size=5.5,colour = 'black'),
+        axis.ticks = element_line(size = 0.25),
+        axis.ticks.length = unit(0.05, "cm"),
+        panel.border = element_rect(size=0.4))+
+  ylim(0,5)+xlim(-1,1.05)+
   labs(x="",y="")
-ggsave("Fig.3b.tiff",width=4.3,height=4.6,path="D:/")
 
+ggsave("Fig.3b.pdf",width=1.8,height=1.8,path="D:/")
 
 data<-read_excel('Fig.3.xlsx')
-ggplot(data, aes(x=Rvalue,y=..density..))+  
-  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.5,fill="#7AC5CD")+
-  geom_density(alpha=.45,fill="#7AC5CD",color="#7AC5CD",lwd=0.8)+
+ggplot(data, aes(x=VHR_host_Rvalue,y=..density..))+  
+  geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.18,fill="#7AC5CD")+
+  geom_density(alpha=.45,fill="#7AC5CD",color="#7AC5CD",lwd=0.22)+
   theme_test()+
-  theme(axis.title.x = element_text(size=18),axis.title.y = element_text(size=18),
-        axis.text.x = element_text(hjust =0.5,size=16,colour = 'black'),
-        axis.text.y=element_text(size=16,colour = 'black'),
-        panel.border = element_rect(size=1.3))+xlim(-1.05,1.05)+ylim(0,2.5)+
+  theme(axis.title.x = element_text(size=6.5),
+        axis.title.y = element_text(size=6.5),
+        axis.text.x = element_text(hjust =0.5,size=5.5,colour = 'black'),
+        axis.text.y=element_text(size=5.5,colour = 'black'),
+        axis.ticks = element_line(size = 0.25),
+        axis.ticks.length = unit(0.05, "cm"),
+        panel.border = element_rect(size=0.4))+
+  xlim(-1.05,1.05)+ylim(0,2.5)+
   labs(x="",y="")
-ggsave("Fig.3c.tiff",width=4.5,height=4.6,path="D:/")
+ggsave("Fig.3c.pdf",width=1.88,height=1.8,path="D:/")
 
 #Fig.3d
 data<-read.delim('HOST-virus-correlation.txt',header = T,row.names = 1)
@@ -207,9 +132,8 @@ r<-as.matrix(r)
 cols<-colorRampPalette(c(rgb(91,194,205,max=255),rgb(255,255,255,max=255),rgb(255,128,64,max=255)))(200)
 library(corrplot)
 corrplot(r,tl.srt=45,tl.col = 'black',method='square',tl.cex=0.8,
-         p.mat = p,insig = 'label_sig',sig.level = c(0.001,0.01,0.05),pch.cex = 1.2,pch.col = 'black',cl.cex = 1,
-         col=cols,tl.pos="b",cl.pos = "n",cl.ratio = 0.25)
-ggsave("1.tiff",width=5,height=5,path="F:/")
+         p.mat = p,insig = 'label_sig',sig.level = c(0.001,0.01,0.05),pch.cex = 1.2,pch.col = 'black',cl.cex = 0.1,
+         col=cols,tl.pos="b",cl.pos = "r",cl.ratio = 0.7)
 
 #Fig.3e
 #DOM analysis
@@ -285,4 +209,3 @@ chordDiagram(
   link.arr.type = "big.arrow",
   link.sort = TRUE,
   link.largest.ontop = TRUE)
-
