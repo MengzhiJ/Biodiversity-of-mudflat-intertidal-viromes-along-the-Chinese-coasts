@@ -1,0 +1,11 @@
+Type,Gammaproteobacteria,Alphaproteobacteria,Deltaproteobacteria,Chloroflexi,Bacteroidetes,Acidobacteria,Actinobacteria,Planctomycetes,Gemmatimonadetes,Cyanobacteria,Verrucomicrobia,Firmicutes,Betaproteobacteria
+Polyphenol,401,338,224,132,113,169,174,238,58,408,26,8,31
+Aliphatic,1609,1658,1107,630,277,617,761,929,201,3254,92,33,87
+Amino,54,77,30,56,20,73,26,49,24,140,3,0,2
+Aromatic,258,189,158,127,56,194,195,173,71,156,11,0,48
+Phenolic,557,635,462,287,111,273,183,370,102,921,33,7,25
+Lignin,1086,1086,720,407,242,367,414,560,106,1558,65,21,63
+Tannin,107,110,63,96,44,146,43,90,55,108,6,0,3
+Carbohydrate,67,75,77,49,33,24,12,38,5,69,12,1,1
+Lipid,346,271,221,122,100,211,183,230,90,534,11,16,19
+Protein,269,313,206,86,20,46,68,134,15,415,12,7,12
