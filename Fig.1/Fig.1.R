@@ -16,6 +16,7 @@ library(readxl)
 library(ggpubr)
 library(vegan)
 library(ggpmisc)
+
 #Fig. 1a
 #read map data
 setwd("D:/Tidal_spatial/R_data/github/Fig.1/raw_data_for_figure1/")
@@ -73,8 +74,6 @@ nine_map <- ggplot() +
 #combine two map
 ggdraw()+draw_plot(map)+draw_plot(nine_map, x = 0.8, y = 0.17, width = 0.1, height = 0.15)
 
-ggsave("Fig.1a-1.pdf",width=4,height=4,path="D:/")
-
 #sampled map (province)
 HN = read_sf('hainan.json') 
 GD = read_sf('guangdong.json') 
@@ -106,28 +105,23 @@ ggplot() +geom_sf(data = HN,color='#363636',fill="#FFFFFF",size=1)+
   theme(plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "cm"))+
   geom_point(data=mydata,aes(x=Longitude,y=Latitude),color="#FB8B40",size=0.7,shape=15)
 
-ggsave("Fig.1a-2.pdf",width=3.6,height=3.6,path="D:/")
-
 #Fig. 1b
 sales <- c(20.3,79.7)
 names<-c("a","b")
 share<-sales/sum(sales)*100
-data <- data.frame(
-  sales,share,names)
+data <- data.frame(sales,share,names)
 ggplot()+
   geom_arc_bar(data=data,aes(x0 = 0, y0 = 0, r0 = 0, r = 1,amount=sales,explode=c(0,0.1),fill=names,color=names),stat="pie")+
   coord_fixed()+theme_void()+theme(legend.position = "none")+
   scale_color_manual(breaks=c("a","b"),values=c("lightgray","black"))+
   scale_fill_manual(breaks=c("a","b"),values=c("lightgray","black"))
-ggsave("Fig.1b-1.pdf",width=3,height=3,path="D:/")
 
-data<-data.frame(variable=c(14102,733,150,144,156,145,60,145,59,121,213), group = paste0("a", 1:11))
+data<-data.frame(variable=c(14102,732,150,144,156,145,60,145,59,121,213), group = paste0("a", 1:11))
 ggplot(data, aes(x = 3, y = variable, fill = group))+ geom_col() +
   coord_polar(theta = "y") +xlim(c(0.5, 4.5))+theme_void()+theme(legend.position = "none")+
   scale_fill_manual(breaks=c("a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11"),
                     values=c("#7AC5CD","#ff9d6f","#A0E632","#D8B0FF","#A67A13","#8E9CFF","#9D3CFF",
                               "#00A0FF","#FB6501","#E6AF2D","#EDE76D"))
-ggsave("Fig.1b-2.pdf",width=3,height=3,path="D:/")
 
 #Fig. 1c
 data<-read_excel("Fig.1c.xlsx")
@@ -191,8 +185,6 @@ theme(legend.title = element_blank(),legend.key.height = unit(0.2, "cm"),
 legend1 <- get_legend(legend)
 ggdraw(legend1)
 
-ggsave("Fig.1d1.pdf",width=1.6,height=2,path="D:/")
-
 #Fig. 1e
 otu  <- read.delim('vOTU.txt', row.names = 1, sep = '\t', stringsAsFactors = FALSE, check.names = FALSE) 
 otu1 <- read.delim('vPCs.txt', row.names = 1, sep = '\t', stringsAsFactors = FALSE, check.names = FALSE) 
@@ -239,5 +231,3 @@ ggplot(all_new)+
         axis.ticks.length = unit(0.04, "cm"),
         panel.border = element_rect(size=0.35))+
   scale_x_continuous(limits =c(0,100),breaks = seq(0,100,20))+ylim(0,10000)
-
-ggsave("Fig.1e.pdf",width=2,height=1.9,path="D:/")
