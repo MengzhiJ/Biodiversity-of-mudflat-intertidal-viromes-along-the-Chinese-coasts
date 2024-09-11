@@ -37,7 +37,6 @@ ggplot(data=data, aes(x=value, y=variable))+
                        axis.ticks.length = unit(0.04, "cm"),
                        panel.border = element_rect(size=0.4))+
                        theme(legend.position ="none")
-ggsave("Fig.4a.pdf",width=2,height=2, path="D:/")  
 
 #Fig.4b
 data<-read.delim('latitude.txt', row.names = 1, sep = '\t', stringsAsFactors = FALSE, check.names = FALSE)
@@ -59,7 +58,6 @@ ggplot(data = data, mapping = aes(x=Latitude,y=Richness))+
   theme(legend.position ="none")+
   stat_poly_eq(formula=y~poly(x,2),aes(color=Type,label = paste(..rr.label.., ..p.value.., sep = "~`,`~")),size=1.7,
                label.x = )
-ggsave("Fig.4b.pdf",width=2.2,height=2, path="D:/") 
 
 #Fig.4c
 #distance_calculate
@@ -117,7 +115,6 @@ ggplot(data = data_new,aes(x=dist_loca_num,y=distv_num))+
   scale_x_continuous(breaks = seq(0,6,1))+xlim(5.25,6.5)+
   stat_poly_eq(aes(color=Type,label = paste(..eq.label..,..rr.label..,..p.value.., sep = "~`,`~")),size=5,
                formula = y ~ x,parse = TRUE)
-ggsave("Fig.4c.pdf",width=2.2,height=2, path="D:/") 
 
 #Fig.4d
 #info dataset
