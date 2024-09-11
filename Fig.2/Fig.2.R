@@ -4,6 +4,7 @@ library(ggplot2)
 library(dplyr)
 library(readxl)
 library(ggpmisc)
+
 #Fig.2a
 setwd('D:/Tidal_spatial/R_data/github/Fig.2/raw_data_for_figure2')
 data<-read_excel('Fig.2.xlsx')
@@ -27,8 +28,6 @@ ggplot(data_m, aes(x=COG, y=value),color=COG) +
          panel.border = element_rect(size=0.35))+
   theme(legend.position='none')
 
-ggsave("Fig.2a-1.pdf",width=2.2,height=1.5, path="D:/")   
-
 #Gene relative proportion (abundance)
 data_m$COG=factor(data_m$COG, levels=c('S','L','M','K','O','F','U','T','E','G','H','D','J','Q','N','I','V','C','P','W','Z','A','B'))
 ggplot(data_m, aes(x=COG, y=value),color=COG) + 
@@ -47,7 +46,6 @@ ggplot(data_m, aes(x=COG, y=value),color=COG) +
          axis.ticks.length = unit(0.04, "cm"),
          panel.border = element_rect(size=0.4))+
   theme(legend.position='none')
-ggsave("Fig.2a-2.pdf",width=3.3,height=2.1, path="D:/")  
 
 #Fig.2b
 data<-read_excel("Fig.2.xlsx") 
@@ -74,8 +72,7 @@ ggplot(data)+
                       strip.text=element_text(size=5.5, margin = margin(2, 2, 2, 2)),
                       strip.background = element_rect(color = "black", size = 0.35),
                       panel.border = element_rect(size=0.4))+
-  theme(legend.position='none')+ylim(0,50)+facet_wrap(~score)
-ggsave("Fig.2b.pdf", width= 3.9,height= 2,path="D:/")                    
+  theme(legend.position='none')+ylim(0,50)+facet_wrap(~score)                
 
 #Fig.2d
 #TOC-methane oxidation
@@ -95,5 +92,4 @@ ggplot(data, mapping = aes(x=factor,y=gene))+
          panel.border = element_rect(size=0.4))+
   ylim(-30,160)+
   stat_poly_eq(aes(label = paste(..rr.label.., ..p.value.label.., sep = "~`,`~")),size=2,
-           label.x = )
-ggsave("Fig.2d.pdf", width= 1.9,height= 1.8,path="D:/")      
+           label.x = )   
