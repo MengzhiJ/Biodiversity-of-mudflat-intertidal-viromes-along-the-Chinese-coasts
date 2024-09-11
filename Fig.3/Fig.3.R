@@ -9,6 +9,7 @@ library(ggpmisc)
 library(nlme)
 library(Hmisc)
 library(psych)
+
 setwd('D:/Tidal_spatial/R_data/github/Fig.3/raw_data_for_figure3/')
 #Fig.3b and c
 #calculate the correlations between each virus and host pair
@@ -98,8 +99,6 @@ ggplot(data, aes(x=correlation_r,y=..density..))+
   ylim(0,5)+xlim(-1,1.05)+
   labs(x="",y="")
 
-ggsave("Fig.3b.pdf",width=1.8,height=1.8,path="D:/")
-
 data<-read_excel('Fig.3.xlsx')
 ggplot(data, aes(x=VHR_host_Rvalue,y=..density..))+  
   geom_histogram(binwidth = 0.1,alpha=0.5,colour="black",size=0.18,fill="#7AC5CD")+
@@ -114,7 +113,6 @@ ggplot(data, aes(x=VHR_host_Rvalue,y=..density..))+
         panel.border = element_rect(size=0.4))+
   xlim(-1.05,1.05)+ylim(0,2.5)+
   labs(x="",y="")
-ggsave("Fig.3c.pdf",width=1.88,height=1.8,path="D:/")
 
 #Fig.3d
 data<-read.delim('HOST-virus-correlation.txt',header = T,row.names = 1)
