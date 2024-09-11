@@ -300,7 +300,7 @@ setwd(save.wd)
 tnst=tNST(comm=comm, group=groupi, meta.group=meta.groupi, meta.com=NULL,
           dist.method=dist.method, abundance.weighted=TRUE, rand=rand.time,
           output.rand=TRUE, nworker=25, LB=FALSE, null.model="PF",dirichlet=F,
-          between.group=F, SES=F, RC=F)
+          between.group=T, SES=F, RC=F)
 
 write.table(tnst$index.grp,file = paste0(prefixi,".tNST.summary.csv"), quote = FALSE,sep = ",")
 write.table(tnst$index.pair.grp,file = paste0(prefixi,".tNST.pairwise.csv"),quote = FALSE,sep = ",")
@@ -326,6 +326,4 @@ ggplot(data,aes(x=class,y=pairwise_NST))+
          panel.border = element_rect(size=0.34))+ 
   coord_cartesian(ylim = c(0,100))+
   geom_hline(yintercept=c(50), linetype=2,color="#FF8040",size=0.25) #add Horizontal Line 
-
-ggsave("Fig.5e.pdf", width= 1.92,height= 1.9,path="D:/")                    
-
+            
