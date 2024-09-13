@@ -20,7 +20,7 @@ library(ggpmisc)
 #Fig. 1a
 #read map data
 setwd("D:/Tidal_spatial/R_data/github/Fig.1/raw_data_for_figure1/")
-API_pre = "http://xzqh.mca.gov.cn/data/"
+API_pre = "http://xzqh.mca.gov.cn/data/" (The source data here is publicly available)
 China = st_read(dsn = paste0(API_pre, "quanguo.json"), stringsAsFactors=FALSE) 
 st_crs(China) = 4326
 China_line = st_read(dsn = paste0(API_pre, "quanguo_Line.geojson"), stringsAsFactors=FALSE) 
@@ -145,18 +145,14 @@ ggplot(data,aes(x=letter, y=ratio))+
         panel.border = element_rect(size=0.35))+
   ylim(0,100)+ theme(legend.position="none")
 
-ggsave("Fig.1c.pdf",width=1.9,height=1.9,path="D:/")
-
 #Fig. 1d
 data<-read_excel("Fig.1d.xlsx")
 data$tax=factor(data$tax,levels=c("Proteobacteria","Bacteroidetes","Chloroflexi","Acidobacteria","Actinobacteria",
                                   "Gemmatimonadetes","Planctomycetes","Verrucomicrobia","Nitrospirae","Cyanobacteria",
                                   "Other bacteria","Thaumarchaeota","Bathyarchaeota","Euryarchaeota","Thermoplasmatota",
                                   "Woesearchaeota","Altiarchaeota","Heimdallarchaeota","Kariarchaeota","Other archaea"))
-
 data$class=factor(data$class, levels=c("Bacteria",'Archaea'))
-
-legend<-ggplot(data, aes(x=class, y=proportion))+
+ggplot(data, aes(x=class, y=proportion))+
   geom_bar(stat="identity", color="#696969",width=0.48,size=0.13,position="stack", aes(fill=tax))+
   scale_fill_manual(breaks = c("Proteobacteria","Bacteroidetes","Chloroflexi","Acidobacteria","Actinobacteria",
                                "Gemmatimonadetes","Planctomycetes","Verrucomicrobia","Nitrospirae","Cyanobacteria",
