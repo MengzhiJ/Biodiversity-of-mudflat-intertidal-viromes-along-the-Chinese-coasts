@@ -12,7 +12,7 @@ data_m<-melt(data)
 #Gene number (frequency)
 data_m$COG=factor(data_m$COG, levels=c('S','L','M','O','K','U','F','T','E','G','H','D','J','N','Q','V','I','C','P','W','Z','A','B'))
 ggplot(data_m, aes(x=COG, y=value),color=COG) + 
-  geom_boxplot(outlier.size=0,outlier.colour='white',aes(fill=factor(COG)),size = 0.08)+
+  geom_boxplot(outlier.size=0.5,aes(fill=factor(COG)),size = 0.08)+
   scale_fill_manual(breaks=c('S','L','M','O','K','U','F','T','E','G','H','D','J','N','Q','V','I','C','P','W','Z','A','B'),
     values = c('#7AC5CD','#FFD700','#00E5EE','#00CD00','#35978f','#FF6347',
                '#EE9A49','#E0EEEE','#1AFD9C','#F5DEB3','#E6E6FA','#FFE7BA',
@@ -31,7 +31,7 @@ ggplot(data_m, aes(x=COG, y=value),color=COG) +
 #Gene relative proportion (abundance)
 data_m$COG=factor(data_m$COG, levels=c('S','L','M','K','O','F','U','T','E','G','H','D','J','Q','N','I','V','C','P','W','Z','A','B'))
 ggplot(data_m, aes(x=COG, y=value),color=COG) + 
-  geom_boxplot(outlier.size=0,outlier.colour='white',aes(fill=factor(COG)),size = 0.1,width=0.65)+
+  geom_boxplot(outlier.size=0.5,aes(fill=factor(COG)),size = 0.1,width=0.65)+
   scale_fill_manual(breaks=c('S','L','M','K','O','F','U','T','E','G','H','D','J','Q','N','I','V','C','P','W','Z','A','B'),
                     values = c('#7AC5CD','#FFD700','#00E5EE','#35978f','#00CD00','#EE9A49',
                                '#FF6347','#E0EEEE','#1AFD9C','#F5DEB3','#E6E6FA','#FFE7BA',
