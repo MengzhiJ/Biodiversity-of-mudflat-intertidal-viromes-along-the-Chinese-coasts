@@ -1,4 +1,4 @@
-Country	Longitude	Latitude	Number
+City	Longitude	Latitude	Number
 SY	109.6807945	18.27040352	8
 BH	109.1590941	21.55293944	8
 ZH	113.6442374	22.43845252	8
