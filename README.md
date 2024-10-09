@@ -28,3 +28,5 @@ This subfolder includes the virsorter2 ('NCLDV' mode) and viralrecall outputs of
 vOTU, mOTU, vPC sequences information can be obtained from https://zenodo.org/records/10827260. 
 
 For any other code/data inquiries, please open a github issue or contact me: jimengzhi@mail.sdu.edu.cn.
+
+If these codes are useful, please cite: Ji, M. et al. Biodiversity of mudflat intertidal viromes along the Chinese coasts. Nat Commun 15, 8611 (2024). https://doi.org/10.1038/s41467-024-52996-x
